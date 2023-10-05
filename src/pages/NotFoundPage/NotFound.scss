@@ -1,0 +1,17 @@
+@import '../../App.scss';
+
+
+
+.not-found {
+  @include displayFlex(center);
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  font-size: 3rem;
+  color: $hover-red;
+  img {
+    margin: 0 auto;
+    display: block;
+    width: 10rem;
+  }
+}

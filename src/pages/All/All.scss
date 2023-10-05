@@ -1,0 +1,72 @@
+@import '../../App.scss';
+
+.field {
+  position: relative;
+  width: 8rem;
+}
+h3 {
+  @include titlePrimary;
+  margin-bottom: 0.5rem;
+}
+
+.trending {
+  margin-bottom: 3rem;
+  .bookmark {
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    @include bookmark;
+  }
+  .trending-list {
+    .backdrop {
+      position: relative;
+      width: 10.25rem;
+      height: 6rem;
+      border-radius: 0.5rem;
+      position: relative;
+      &:hover {
+        @include hoverOver;
+      }
+      
+      .info {
+        color: rgb(218, 212, 255);
+        position: absolute;
+        bottom: 0.3rem;
+        left: 0.3rem;
+        &:hover {
+          color: rgb(152, 141, 218);
+        }
+        small {
+          display: block; 
+          @include displayFlex(center);
+          font-size: 0.75rem;
+          gap: 0.2rem;
+          span {
+            background: white;
+            width: 0.2rem;
+            height: 0.2rem;
+            border-radius: 50%;
+          }
+        }
+        h3 {
+          font-weight: 500;
+        }
+      }
+    }
+    }
+}
+
+@media (min-width: 768px) {
+  .trending {
+    .trending-list {
+      gap: 2rem;
+      .backdrop{
+        width: 9.5rem;
+        height: 5.5rem;
+      }
+    }
+  }
+  .bookmark {
+    right: 0;
+  }
+}

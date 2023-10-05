@@ -1,0 +1,64 @@
+@import '../../App.scss';
+
+
+.upcoming {
+  .upcoming-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    gap: 1rem;
+    justify-items: center;
+    li {
+      width: 10rem;
+    }
+    .trending-upcoming {
+      position: relative;
+      border-radius: 0.5rem;
+      width: 10.25rem;
+      height: 5rem;
+      margin: 0 auto;
+      &:hover {
+        @include hoverOver;
+        
+      }
+    }
+    .bookmark {
+      position: absolute;
+      top: 0;
+      right: -1.5rem;
+      @include bookmark;
+    }
+    .info {
+      margin-top: 0.5rem;
+      color: color;
+      bottom: 0.3rem;
+      left: 0.3rem;
+      small {
+        display: block; 
+        @include displayFlex(center);
+        font-size: 0.75rem;
+        gap: 0.2rem;
+        span {
+          background: white;
+          width: 0.2rem;
+          height: 0.2rem;
+          border-radius: 50%;
+        }
+      }
+      h3 {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .upcoming {
+    
+    .upcoming-list {
+      gap: 2rem;
+      .trending-upcoming {
+        width: 9.5rem;
+      }
+    }
+  }
+}

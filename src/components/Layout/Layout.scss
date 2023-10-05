@@ -1,0 +1,31 @@
+@import '../../App.scss';
+
+
+.search {
+  @include displayFlex(center);
+  position: relative;
+  left: 1rem;
+  font-weight: 300;
+  i {
+    position: absolute;
+    left: 0;
+    top: 10%;
+    color: white;
+  }
+  input {
+    background: none;
+    padding: 0.5rem 2rem;
+    width: 100%;
+    background: none;
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+}
+
+
+
+
+
+

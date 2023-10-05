@@ -1,0 +1,63 @@
+@import '../../App.scss';
+
+
+hr {
+  border-color: $semi-dark-blue;
+  margin: 2rem 0;
+}
+.details {
+  @include displayFlex(none);
+  flex-direction: column;
+  gap: 2rem;
+  .poster {
+    display: block;
+    margin: 0 auto;
+    max-width: 15rem;
+    max-height: 16rem;
+  }
+  .details-info {
+    @include displayFlex(none);
+    flex-direction: column;
+    gap: 1rem;
+    .title {
+      @include titlePrimary;
+    }
+    .genres {
+      @include displayFlex(center);
+      flex-wrap: wrap;
+      gap: 1rem;
+      li {
+        padding: 0.5rem 1rem;
+        background: $semi-dark-blue;
+        border-radius: 0.5rem;
+      }
+    }
+    .rate {
+      @include displayFlex(center);
+      gap: 0.1rem;
+      i {
+        color: #d4a600;
+      }
+    }
+    .description {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #a8a8a8;
+    }
+  }
+}
+.trailers-title {
+  @include titlePrimary;
+  margin-bottom: 2rem;
+}
+
+.video-list {
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .details {
+    flex-direction: row;
+  }
+}

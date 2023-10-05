@@ -1,0 +1,89 @@
+@import '../../App.scss';
+
+header {
+  background: $semi-dark-blue;
+  max-width: 720px;
+  margin: 0 auto;
+
+  .header {
+    position: relative;
+    @include displayFlex(center);
+    justify-content: space-between;
+
+    .header-nav {
+      .nav-list {
+        @include displayFlex(center);
+        gap: 1rem;
+
+        i {
+          color: $icon-color;
+
+          &:hover {
+            color: $hover-red;
+          }
+
+          &.active {
+            color: white;
+          }
+        }
+      }
+
+      .account-icon {
+        color: $icon-color;
+
+
+      }
+
+    }
+
+    .login {
+      position: relative;
+      width: 2rem;
+      .logout-btn {
+        position: absolute;
+        top: -1.2rem;
+        right: -0.1rem;
+        border-radius: 0.5rem;
+        color: white;
+        padding: 0.5rem 1rem;
+        background: $hover-red;
+      }
+    }
+  }
+}
+
+@media (min-width: 720px) {
+  header {
+    margin-top: 2rem;
+    border-radius: 0.6rem;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    margin: 2rem;
+    padding: 2.20rem 0;
+    position: fixed;
+    width: 6rem;
+    height: 90%;
+
+    .container {
+      height: 100%;
+    }
+
+    .header {
+      height: 100%;
+      @include displayFlex(center);
+      flex-direction: column;
+      justify-content: space-between;
+
+      .nav-list {
+        flex-direction: column;
+        padding-bottom: 5rem;
+      }
+      .logout-btn {
+        transform: translateX(20%);
+      }
+    }
+  }
+}

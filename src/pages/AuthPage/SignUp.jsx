@@ -28,8 +28,6 @@ export default function SignUp() {
       console.error(err)
     } 
   }
-
-  console.log(error)
   const {values,touched, handleBlur,errors, handleChange, handleSubmit} = useFormik({
     initialValues: {
       email: '',

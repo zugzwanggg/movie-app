@@ -10,10 +10,10 @@ import Tv from './pages/Tv/Tv'
 import Bookmark from './pages/Bookmark/Bookmark'
 import OnSearch from './pages/OnSearch/OnSearch'
 import Login from './pages/AuthPage/Login'
+import SignUp from './pages/AuthPage/SignUp'
 import MovieDetailsPage from './components/DetailsPage/MovieDetailsPage'
 import TvDetailsPage from './components/DetailsPage/TvDetailsPage'
 import NotFound from './pages/NotFoundPage/NotFound'
-import Upcoming from './pages/Upcoming/Upcoming'
 
 
 
@@ -52,6 +52,7 @@ function App() {
 
         </Route>
         <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
     </div>

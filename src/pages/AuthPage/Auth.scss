@@ -21,7 +21,53 @@
     border-radius: 0.6rem;
     .title {
       @include titlePrimary;
+    }
+    .wrong-pass {
+      color: $hover-red;
+    }
+    p {
       text-align: center;
+      font-weight: 300;
+      a {
+        color: $hover-red;
+        text-decoration: underline;
+      }
+    }
+  }
+  .signup {
+    height: 100%
+  }
+  .auth-form {
+    @include displayFlex(none);
+    flex-direction: column;
+    gap: 1rem;
+    hr {
+      margin: 0;
+      width: 100%;
+      &.error {
+        border-color: $hover-red;
+      }
+    }
+    input {
+      padding: 1rem;
+      border-radius: 0.5rem;
+      background: none;
+      color: white;
+      width: 100%;
+    }
+    button {
+      margin-top: 1rem;
+      background: $hover-red;
+      padding: 1rem;
+      border-radius: .5rem;
+      color: white;
+      &:hover {
+        background: rgb(164, 52, 52);
+      }
+    }
+    .email, .password {
+      @include displayFlex(start);
+      flex-direction: column;
     }
   }
 }

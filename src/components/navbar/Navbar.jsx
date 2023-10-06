@@ -8,6 +8,8 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/AuthSlice/AuthSlice';
+import { auth } from '../../config/firebase';
+import { signOut } from 'firebase/auth';
 
 
 export default function Navbar() {
@@ -16,6 +18,16 @@ export default function Navbar() {
 
   const {login} = useSelector(state=>state.auth)
   const [isActive,setIsActive] = useState('all')
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth)
+      dispatch(logout())
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
 
   return (
     
@@ -28,7 +40,7 @@ export default function Navbar() {
           <img className='header-logo' src="../img/logo.png" alt="" />
           </Link>
 
-
+  
           <nav className='header-nav'>
             <ul className='nav-list'>
               <li className='list-items'>
@@ -67,7 +79,7 @@ export default function Navbar() {
             login
             ?
             <div className='login'>
-              <button onClick={()=>dispatch(logout())} className='logout-btn'>
+              <button onClick={()=>handleLogout()} className='logout-btn'>
                 Logout
               </button>
             </div>

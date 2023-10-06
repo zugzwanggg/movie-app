@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Auth.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 import { setAuth} from '../../features/AuthSlice/AuthSlice';
-import { auth  } from '../../config/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../config/firebase';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useFormik } from 'formik';
-import { loginSchema } from './Validations/schemes';
+import { basicSchema } from './Validations/schemes';
 
-export default function Login() {
+export default function SignUp() {
 
-  const [error,setError] = useState(false)
+
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -18,7 +18,7 @@ export default function Login() {
 
   const onSubmit = async () => {
     try {
-      await signInWithEmailAndPassword(auth, values.email, values.password)
+      await createUserWithEmailAndPassword(auth, values.email, values.password)
     dispatch(setAuth({
       email: values.email,
       password: values.password
@@ -26,16 +26,17 @@ export default function Login() {
     navigate('/')
     } catch(err) {
       console.error(err)
-      setError(true)
     } 
   }
 
+  console.log(error)
   const {values,touched, handleBlur,errors, handleChange, handleSubmit} = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      password: '',
+      confirmPassword: ''
     },
-    validationSchema: loginSchema,
+    validationSchema: basicSchema,
     onSubmit
   })
 
@@ -44,9 +45,8 @@ export default function Login() {
     <div className="auth">
       <Link to='/'><img className='logo' src="./img/header-logo.svg" alt="" /></Link>
       <div className='container'>
-      <div className="auth-item">
-        <h1 className='title'>Login</h1>
-        {error && <small className='wrong-pass'>Wrong password</small>}
+      <div className="auth-item signup">
+        <h1 className='title'>SignUp</h1>
         <form onSubmit={handleSubmit} className='auth-form'>
           <div className='email'>
             <input 
@@ -68,9 +68,19 @@ export default function Login() {
             type="password" />
             <hr className={errors.password && touched.password  ? 'error' : ''}/>
           </div>
-          <button type='submit'>Sign In</button>
+          <div className='password'>
+            <input 
+            id='confirmPassword'
+            value={values.confirmPassword} 
+            onChange={handleChange}
+            onBlur={handleBlur}
+            placeholder='Repeat Password' 
+            type="text" />
+            <hr className={errors.confirmPassword && touched.confirmPassword  ? 'error' : ''}/>
+          </div>
+          <button type='submit'>SignUp</button>
         </form>
-        <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+        <p>Already have an account? <Link to='/login'>Login</Link></p>
       </div>
       </div>
     </div>

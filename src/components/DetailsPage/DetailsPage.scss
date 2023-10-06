@@ -1,6 +1,9 @@
 @import '../../App.scss';
 
 
+iframe {
+  width: 300px;
+}
 hr {
   border-color: $semi-dark-blue;
   margin: 2rem 0;

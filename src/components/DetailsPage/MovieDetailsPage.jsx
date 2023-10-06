@@ -90,8 +90,6 @@ export default function DetailsPage() {
             <ReactPlayer 
             url={'https://www.youtube.com/watch?v='+video.key}
             controls={true}
-            width='330px'
-            height='200px'
             />
             </SwiperSlide>})
         }
